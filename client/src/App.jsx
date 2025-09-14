@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import Signup from "./pages/Signup";
 import { ProjectProvider } from "./context/ProjectContext";
 import { AuthProvider } from "./context/AuthContext";
 import { ToastContainer } from "react-toastify";
@@ -29,7 +28,6 @@ function App() {
                 <Route path="/start-project" element={<StartProject />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin-login" element={<AdminLogin />} />
-                <Route path="/signup" element={<Signup />} />
               </Routes>
               <ToastContainer position="top-right" autoClose={3000} />
             </main>
