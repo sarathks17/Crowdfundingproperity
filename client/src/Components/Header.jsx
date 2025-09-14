@@ -38,11 +38,6 @@ const Header = () => {
           </button>
         </div>
         <div className="nav-item">
-          <button onClick={() => handleNavigation('/dashboard')} className="custom-button">
-            Dashboard
-          </button>
-        </div>
-        <div className="nav-item">
           <button onClick={() => handleNavigation('/login')} className="custom-button">
             Login
           </button>

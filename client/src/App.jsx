@@ -1,13 +1,13 @@
 // App.jsx
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './Components/Header'
-import Footer from './Components/Footer'
-import Home from './Pages/Home'
-import Projects from './Pages/Projects'
-import Projectdetails from './Pages/Projectdetails'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import Projects from './pages/Projects'
+import Projectdetails from './pages/Projectdetails'
 import StartProject from './Pages/StartProject'
-import Login from './Pages/Login'
+import Login from './pages/Login'
 import AdminLogin from './pages/AdminLogin'
 import Signup from './pages/Signup'
 import Feedback from './pages/Feedback'
@@ -20,6 +20,7 @@ import { ProjectProvider } from './context/ProjectContext'
 import { AuthProvider } from './context/AuthContext'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   return (
