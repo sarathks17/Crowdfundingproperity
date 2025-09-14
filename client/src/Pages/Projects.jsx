@@ -1,4 +1,4 @@
-// pages/Projects.jsx
+
 import { useState } from 'react'
 import { useProjects } from '../context/ProjectContext'
 import ProjectCard from '../Components/Projectcard'

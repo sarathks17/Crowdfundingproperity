@@ -1,4 +1,4 @@
-// components/ProjectCard.jsx
+
 import { useNavigate } from 'react-router-dom'
 
 const ProjectCard = ({ project }) => {
