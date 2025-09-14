@@ -1,0 +1,56 @@
+// App.jsx
+import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './Components/Header'
+import Footer from './Components/Footer'
+import Home from './Pages/Home'
+import Projects from './Pages/Projects'
+import Projectdetails from './Pages/Projectdetails'
+import StartProject from './pages/StartProject'
+import Dashboard from './pages/Dashboard'
+import Login from './pages/Login'
+import AdminLogin from './pages/AdminLogin'
+import Signup from './pages/Signup'
+import Feedback from './pages/Feedback'
+import BehaviorReport from './pages/BehaviorReport'
+import About from './pages/About'
+import Terms from './pages/Terms'
+import Privacy from './pages/Privacy'
+import Accessibility from './pages/Accessibility'
+import { ProjectProvider } from './context/ProjectContext'
+import { AuthProvider } from './context/AuthContext'
+
+function App() {
+  return (
+    <AuthProvider>
+      <ProjectProvider>
+        <Router>
+          <div className="font-sans flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-grow">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/project/:id" element={<Projectdetails />} />
+               <Route path="/start-project" element={<StartProject />} /> 
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/admin-login" element={<AdminLogin />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/feedback" element={<Feedback />} />
+                <Route path="/behavior-report" element={<BehaviorReport />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/accessibility" element={<Accessibility />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </Router>
+      </ProjectProvider>
+    </AuthProvider>
+  )
+}
+
+export default App
