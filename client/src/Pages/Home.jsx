@@ -1,4 +1,4 @@
-// pages/Home.jsx
+
 import { useEffect } from 'react'
 import { useProjects } from '../context/ProjectContext'
 import { Link } from 'react-router-dom'
