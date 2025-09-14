@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useProjects } from '../context/ProjectContext'
 import { useAuth } from '../context/AuthContext'
+import { toast } from "react-toastify";
 
 const StartProject = () => {
   const [formData, setFormData] = useState({
@@ -42,13 +43,13 @@ const StartProject = () => {
     // Validate required fields
     if (!formData.name || !formData.description || !formData.goal || 
         !formData.timeline || !formData.team || !formData.risks || !formData.vision) {
-      alert('Please fill in all required fields')
+      toast.error('Please fill in all required fields')
       return
     }
 
     const goal = parseFloat(formData.goal)
     if (goal < 10000 || goal > 15000000) {
-      alert('Funding goal must be between 10,000 AED and 15,000,000 AED')
+      toast.error('Funding goal must be between 10,000 AED and 15,000,000 AED')
       return
     }
 
@@ -69,7 +70,7 @@ const StartProject = () => {
 
     addProject(newProject)
     
-    alert(`Project "${formData.name}" submitted successfully!`)
+    toast.success(`Project "${formData.name}" submitted successfully!`)
     
     // Reset form
     setFormData({

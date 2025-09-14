@@ -1,6 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
+
+  const [formData,setFormData] = useState({
+    name:'',
+    password:'',
+    role:''
+  })
+
+   const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // API CALLING SECTION
+
+  const handleSubmit = (e) => {
+
+    const {name, password, role} = formData;
+
+    if(name.length <= 3){
+      return alert("Enter a valid name");
+    }
+
+    if(password.length < 8){
+      return alert ("Enter a strong password")
+    }
+    if(!role){
+      return alert("Add Role")
+    }
+
+    e.preventDefault();
+    console.log("Login Data:", formData);
+    toast.success(`Logging in as ${formData.username} (${formData.role})`);
+    setFormData({
+      name:"",
+      password:"",
+      role:""
+    })
+  };
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
@@ -17,13 +59,17 @@ const LoginForm = () => {
         </p>
 
         {/* Form */}
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           {/* Username */}
           <div>
             <label className="block text-gray-700 font-medium mb-1">Username</label>
             <input
               type="text"
               placeholder="Enter your username"
+              onChange={handleChange}
+              name="name"
+              value={formData.name}
+              required
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
@@ -33,6 +79,10 @@ const LoginForm = () => {
             <label className="block text-gray-700 font-medium mb-1">Password</label>
             <input
               type="password"
+              required
+              onChange={handleChange}
+              name="password"
+              value={formData.password}
               placeholder="Enter your password"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
@@ -42,6 +92,10 @@ const LoginForm = () => {
           <div>
             <label className="block text-gray-700 font-medium mb-1">Role</label>
             <select
+            required
+            name="role"
+            value={formData.role}
+            onChange={handleChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               <option value="">Select your role</option>

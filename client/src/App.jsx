@@ -6,9 +6,8 @@ import Footer from './Components/Footer'
 import Home from './Pages/Home'
 import Projects from './Pages/Projects'
 import Projectdetails from './Pages/Projectdetails'
-import StartProject from './pages/StartProject'
-import Dashboard from './pages/Dashboard'
-import Login from './pages/Login'
+import StartProject from './Pages/StartProject'
+import Login from './Pages/Login'
 import AdminLogin from './pages/AdminLogin'
 import Signup from './pages/Signup'
 import Feedback from './pages/Feedback'
@@ -19,6 +18,8 @@ import Privacy from './pages/Privacy'
 import Accessibility from './pages/Accessibility'
 import { ProjectProvider } from './context/ProjectContext'
 import { AuthProvider } from './context/AuthContext'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -33,7 +34,6 @@ function App() {
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/project/:id" element={<Projectdetails />} />
                <Route path="/start-project" element={<StartProject />} /> 
-                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/admin-login" element={<AdminLogin />} />
                 <Route path="/signup" element={<Signup />} />
@@ -44,6 +44,7 @@ function App() {
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/accessibility" element={<Accessibility />} />
               </Routes>
+              <ToastContainer position="top-right" autoClose={3000} />
             </main>
             <Footer />
           </div>
